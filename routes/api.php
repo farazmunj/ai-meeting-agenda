@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/ai-bot', AiBotController::class);
+Route::post('/ai-bot', AiBotController::class);
