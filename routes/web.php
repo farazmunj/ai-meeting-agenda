@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use OpenAI\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::any('/', function (Request $request) {
+    $output = '';
+    if ($request->get('input')) {
+        $input = $request->get('input');
+
+        $response = app(Client::class)->chat()->create([
+            'model' => 'gpt-3.5-turbo',
+            'messages' => [
+                ['role' => 'user', 'content' => $input],
+            ],
+
+        ]);
+
+        dd($response);
+    }
+    return view('welcome', compact('output'));
 });
