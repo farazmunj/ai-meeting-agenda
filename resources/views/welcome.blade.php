@@ -20,7 +20,7 @@
                 {!! csrf_field() !!}
                 <div class="row">
                     <div class="col-md-2">
-                        <span>Input</span>
+                        <strong>Input</strong>
                     </div>
                     <div class="col-md-10">
                         <textarea style="width: 100%" rows="20" name="input">{{ request()->get('input') }}</textarea>
@@ -29,9 +29,8 @@
                         <button class="btn btn-success" type="submit">Submit</button>
                     </div>
                     <div class="col-md-12 mt-4">
-                        <p>Output:</p>
-                        <div style="padding: 10px; border: solid 1px #c1c1c1"></div>
-                        <p>{!! @$output !!}</p>
+                        <p><strong>Output:</strong></p>
+                        <p style="padding: 10px; border: solid 1px #c1c1c1">{!! @$output !!}</p>
                     </div>
                     </div>
                 </div>
