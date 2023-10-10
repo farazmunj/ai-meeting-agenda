@@ -25,10 +25,10 @@ Route::any('/', function (Request $request) {
             'messages' => [
                 ['role' => 'user', 'content' => $input],
             ],
+        ])->toArray();
 
-        ]);
-
-        dd($response);
+        $output = $response['choices'][0]['message']['content'];
+        $output = nl2br($output);
     }
     return view('welcome', compact('output'));
 });

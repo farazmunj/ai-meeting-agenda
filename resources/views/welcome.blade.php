@@ -23,7 +23,7 @@
                         <span>Input</span>
                     </div>
                     <div class="col-md-10">
-                        <textarea style="width: 100%" rows="20" name="input">{{ old('input') }}</textarea>
+                        <textarea style="width: 100%" rows="20" name="input">{{ request()->get('input') }}</textarea>
                     </div>
                     <div class="col-md-2 text-left mt-4">
                         <button class="btn btn-success" type="submit">Submit</button>
