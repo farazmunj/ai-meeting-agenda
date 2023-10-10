@@ -23,6 +23,7 @@ Route::any('/', function (Request $request) {
         $response = app(Client::class)->chat()->create([
             'model' => 'gpt-3.5-turbo',
             'messages' => [
+                ['role' => 'system', 'content' => 'You are a helpful assistant that summarizes text.'],
                 ['role' => 'user', 'content' => $input],
             ],
         ])->toArray();
